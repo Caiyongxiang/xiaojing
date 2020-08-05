@@ -96,7 +96,9 @@
 					height: 1rem;
 					margin: 0 0;
 				}
-
+                 .audio{
+					 display: none;
+				 }
 				.b1 {
 					display: inline-block;
 					margin: auto;
@@ -146,7 +148,7 @@
 	</head>
 	<body>
 
-		<audio src="./阿桑%20-%20一直很安静.mp3" class="audio">
+		<audio src="./阿桑%20-%20一直很安静.mp3" class="audio" controls="controls" loop="loop">
 			当前浏览器不支持audio
 		</audio>
 		<h6 class="h1">张晓静,我可以吻你吗</h6>
@@ -228,6 +230,7 @@
 			sp1.style.display = "none"
 
 			b1.onclick = function() {
+				document.getElementsByClassName('audio')[0].style.display="block"
 				$("body").css({
 					background: `url( "./img/background.jpg") no-repeat top center`,
 					backgroundSize: "cover"
