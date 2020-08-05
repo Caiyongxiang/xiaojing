@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, maximum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<style type="text/css">
+			h6 {
+				text-align: center;
+
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.b1 {
+				display: inline-block;
+				margin: auto;
+				position: absolute;
+				top: 120px;
+				left: 40%;
+			}
+
+			.b2 {
+				position: absolute;
+				display: inline-block;
+				top: 120px;
+				left: 55%;
+
+			}
+
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			.box {
+				width: 2rem;
+				height: 2rem;
+				margin: 0 0;
+			}
+
+			.box img {
+				width: 100%;
+
+				animation: rotate 1s linear infinite;
+			}
+
+			@keyframes rotate {
+				from {
+					/* transform: rotateZ(0deg); */
+				}
+
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			.box img:hover {
+				animation-play-state: paused;
+			}
+
+			#aa {
+				width: 50%;
+				height: 50%;
+				margin: auto;
+				font-size: 0.4rem;
+			}
+
+			#bb {
+				font-size: 0.4rem;
+				text-align: center;
+			}
+
+			#sp1 {
+				font-size: 0.4rem;
+				text-align: center;
+			}
+
+			@media screen and (min-width: 996px) {
+				h5 {
+					text-align: center;
+
+					font-size: 1rem;
+				}
+
+				.box {
+					width: 1rem;
+					height: 1rem;
+					margin: 0 0;
+				}
+
+				.b1 {
+					display: inline-block;
+					margin: auto;
+					position: absolute;
+					top: 100px;
+
+					/* 	left: calc(50%-10px); */
+					left: 45%;
+				}
+
+				.b2 {
+					position: absolute;
+					display: inline-block;
+					top: 100px;
+					left: 50%;
+
+				}
+
+				#aa {
+					/* position: absolute; */
+					width: 80%;
+					height: 70%;
+					margin: auto;
+					font-size: 0.3rem;
+				}
+
+				#bb {
+					position: absolute;
+					/* left: 44rem;
+					top: 1rem; */
+					font-size: 0.3rem;
+					top: 300px;
+					left: 1000px;
+				}
+
+				#sp1 {
+					position: absolute;
+					/* left: 1rem;
+					top: 13rem; */
+					top: 400px;
+					left: 1000px;
+					font-size: 0.3rem;
+				}
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<audio src="./阿桑%20-%20一直很安静.mp3" class="audio">
+			当前浏览器不支持audio
+		</audio>
+		<h6 class="h1">张晓静,我可以吻你吗</h6>
+		<div class="box">
+			<img src="img/fengche.png">
+		</div>
+		<button class="b1">可以</button>
+		<button class="b2">不可以</button>
+		<div id="aa"></div>
+		<div id="bb"></div>
+		<div style="display:none" id="w">
+			我慕卿心盼婵娟，
+			爱结连理美梦圆。
+			你姿洒脱青春灿，
+			一世情缘心相牵。
+			生生相依度华年，
+			一身才华乐奉献，
+			世纪腾飞前程宽。
+		</div>
+		<div style="display:none" id="w1">
+			在这一刻我将不再安静,与尔携手
+		</div>
+		<div id="sp1"></div>
+
+		<script type="text/javascript" src="./js/jquery-3.4.1.min.js">
+
+		</script>
+		<script type="text/javascript" src="./js/rem.js">
+
+		</script>
+		<script type="text/javascript" src="./js/jquery-1.2.6.min.js">
+
+		</script>
+		<script type="text/javascript" src="./js/snowfall.jquery.js">
+
+		</script>
+		<script type="text/javascript">
+			var b2 = document.getElementsByClassName("b2")[0];
+			var b1 = document.getElementsByClassName("b1")[0];
+			var audio = document.getElementsByClassName("audio")[0];
+			var h1 = document.getElementsByClassName("h1")[0];
+			var box = document.getElementsByClassName("box")[0];
+			var m = 0;
+			var g = 0;
+			var d = 0;
+			var f = 0;
+			console.log(window.screen.availWidth, innerWidth);
+			var h = 0;
+			document.onmousemove = function(e) {
+				e = e ? e : window.event;
+				var top1 = getComputedStyle(b2).top;
+				var left = getComputedStyle(b2).left;
+				var heigth = getComputedStyle(b2).height;
+				var width = getComputedStyle(b2).width;
+				// console.log(heigth);
+				// console.log(top1);
+				// console.log(left);
+				// console.log(width);
+				// console.log("X:" + e.clientX + "Y:" + e.clientY);
+				if (parseInt(e.clientY) >= parseInt(top1) &&
+					parseInt(e.clientY) <= parseInt(top1) + parseInt(heigth) &&
+					parseInt(e.clientX) >= parseInt(left) &&
+					parseInt(e.clientX) <= parseInt(left) + parseInt(width)
+				) {
+					console.log("aa");
+					b2.style.left = Math.random() * (innerWidth - parseInt(width)) + "px";
+					// 					console.log(b2.style.left);
+					// 
+					b2.style.top = Math.random() * (innerHeight - parseInt(heigth)) + "px";
+				}
+
+
+			}
+			box.style.display = "none";
+			b2.onclick = function() {
+				alert("你赢了,有缘无份");
+			}
+			var sp1 = document.getElementById("sp1");
+			sp1.style.display = "none"
+
+			b1.onclick = function() {
+				$("body").css({
+					background: `url( "./img/background.jpg") no-repeat top center`,
+					backgroundSize: "cover"
+				})
+				audio.play();
+				h1.style.display = "none";
+				b1.style.display = "none";
+				b2.style.display = "none";
+				$("body").snowfall('clear');
+				if (innerWidth >= 996) {
+
+					$("body").snowfall({
+						image: "./img/huaban.png",
+						flakeCount: 30,
+						minSize: 38,
+						maxSize: 10,
+						zIndex: 1
+					});
+				} else if (innerWidth >= 768) {
+					$("body").snowfall({
+						image: "./img/huaban.png",
+						flakeCount: 30,
+						minSize: 32,
+						maxSize: 8,
+						zIndex: 1
+					});
+				}else{
+					$("body").snowfall({
+						image: "./img/huaban.png",
+						flakeCount: 30,
+						minSize: 23,
+						maxSize: 5,
+						zIndex: 1
+					});
+				}
+
+				box.style.display = "block";
+				var index = 0;
+				var num = 0;
+				var word = document.getElementById("w").innerHTML;
+				var word1 = document.getElementById("w1").innerHTML;
+				console.log(word1);
+
+				var timer = setInterval(function() {
+					document.getElementById("aa").innerText = word.substring(0, index++);
+					// console.log(index);
+
+					if (index >= 86) {
+						clearInterval(timer);
+						var timer1 = setInterval(function() {
+							document.getElementById("bb").innerText = word1.substring(0, num++);
+							if (num >= 20) {
+								clearInterval(timer1);
+								setInterval(function() {
+
+									sp1.style.display = "block";
+									m++;
+									if (m >= 86400) {
+										d = d = parseInt(m / 60 / 60 / 24)
+									}
+									if (m >= 3600) {
+										h = parseInt(m / 60 / 60 % 24);
+										h = h < 10 ? "0" + h : h;
+									}
+									if (m >= 60) {
+										f = parseInt(m / 60 % 60);
+										f = f < 10 ? "0" + f : f;
+									}
+
+									g = parseInt(m % 60);
+									g = g < 10 ? "0" + g : g;
+									sp1.innerHTML = d + "天" + h + "小时" + f + "分钟" + g + "秒";
+
+								}, 1000)
+							}
+						}, 200);
+
+					}
+
+				}, 200);
+
+			}
+		</script>
+	</body>
+</html>
